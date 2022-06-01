@@ -5,11 +5,11 @@ import net.minecraft.block.BlockSand.EnumType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 
-public class BiomeMarsFlats extends Biome {
+public class BiomeMarsHills extends Biome {
 
-	public BiomeMarsFlats() {
+	public BiomeMarsHills() {
 		
-		super(new BiomeProperties("MarsFlats").setBaseHeight(0.125f).setHeightVariation(0.03f).setRainfall(0.4f).setTemperature(2.0f).setWaterColor(14837760)); 
+		super(new BiomeProperties("MarsHills").setBaseHeight(1.7f).setHeightVariation(0.1f).setRainfall(0.0f).setRainDisabled().setTemperature(2.0f).setWaterColor(14837760));
 		
 		topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, EnumType.RED_SAND); 
 		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();
@@ -18,6 +18,7 @@ public class BiomeMarsFlats extends Biome {
 	
 	 public static enum TempCategory
 	    {
-	        WARM
+	        MEDIUM
 	    }
 }
+

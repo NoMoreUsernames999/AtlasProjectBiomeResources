@@ -16,9 +16,8 @@ public class BiomeMarsHills extends Biome {
 		
 	}
 	
-	 public static enum TempCategory
-	    {
+	 public enum TempCategory {
 	        MEDIUM
-	    }
+	}
 }
 

@@ -2,15 +2,15 @@
 {
   "modid": "expansebiomeresource",
   "name": "Expanse Biome Resources",
-  "description": "Example placeholder mod.",
+  "description": "Hooking into JED for customized biome bundles",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Tempest051"],
-  "credits": "The Forge team for their mod loader",
+  "credits": "The_Computerizer for the commission",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["justenoughdimensions"]
 }
 ]

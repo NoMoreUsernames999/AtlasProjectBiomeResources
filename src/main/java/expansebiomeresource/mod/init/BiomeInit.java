@@ -2,8 +2,10 @@ package expansebiomeresource.mod.init;
 
 import expansebiomeresource.mod.ExpanseBiomeResource;
 import expansebiomeresource.mod.world.biome.BiomeMarsCanyon;
+import expansebiomeresource.mod.world.biome.BiomeMarsEdge;
 import expansebiomeresource.mod.world.biome.BiomeMarsFlats;
 import expansebiomeresource.mod.world.biome.BiomeMarsHills;
+import expansebiomeresource.mod.world.biome.BiomeMarsMountain;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -13,6 +15,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,18 +25,22 @@ public class BiomeInit {
 	public static final HashMap<String, BiomeType> typeMap = new HashMap<>();
 	public static final HashMap<Biome, List<Biome>> biomeEdgeMap = new HashMap<>();
 	public static final HashMap<Biome, List<Biome>> biomeHillMap = new HashMap<>();
+	
 	public static final Biome MARSFLATS = new BiomeMarsFlats(); 
 	public static final Biome MARSCANYON = new BiomeMarsCanyon(); 
 	public static final Biome MARSHILLS = new BiomeMarsHills(); 
-
+	public static final Biome MARSMOUNTAIN = new BiomeMarsMountain(); 
+	public static final Biome MARSEDGE = new BiomeMarsEdge(); 
 	
 	public static void registerBiomes() {
 		initBiome(MARSFLATS, "marsflats", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
-		initBiome(MARSCANYON, "marscanyon", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.BEACH, Type.OCEAN, Type.RIVER, Type.SANDY);
-		initBiome(MARSHILLS, "marshills", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.HILLS, Type.MOUNTAIN, Type.SANDY);
+		initBiome(MARSCANYON, "marscanyon", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.RIVER, Type.SANDY);
+		initBiome(MARSHILLS, "marshills", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
+		initBiome(MARSMOUNTAIN, "marsmountain", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
+		initBiome(MARSEDGE, "marsedge", 10, false, Arrays.asList(MARSMOUNTAIN, MARSFLATS), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.RARE, Type.SANDY);
 	}
 
-	private static void initBiome(Biome biome, String name, int weight, boolean isOceanic,List<Biome> edges, List<Biome> hills, BiomeType biometype, Type... types) {
+	private static void initBiome(Biome biome, String name, int weight, boolean isOceanic, List<Biome> edges, List<Biome> hills, BiomeType biometype, Type... types) {
 		biome.setRegistryName(name);
 		ForgeRegistries.BIOMES.register(biome);
 		BiomeDictionary.addTypes(biome, types);

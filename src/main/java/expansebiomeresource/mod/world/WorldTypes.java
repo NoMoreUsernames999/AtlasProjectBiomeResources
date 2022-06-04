@@ -24,7 +24,7 @@ public class WorldTypes {
 
     public static void init() {
         //Note that through JED you can reference world types by their names. It would just be mars in this case
-        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marscanyon","marshills")));
+        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marscanyon","marsmountain","marsedge","marshills")));
     }
 
     public static class WorldTypeBundle extends WorldType {
@@ -60,11 +60,6 @@ public class WorldTypes {
         @Override
         public @Nonnull BiomeProvider getBiomeProvider(@Nonnull World world) {
             return new CustomBiomeProvider(this.biomes,world.getSeed(),world.getWorldInfo(),this);
-        }
-
-        @Override
-        public boolean isCustomizable() {
-            return false;
         }
 
         @Override

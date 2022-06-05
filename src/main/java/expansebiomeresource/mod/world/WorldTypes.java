@@ -24,7 +24,7 @@ public class WorldTypes {
 
     public static void init() {
         //Note that through JED you can reference world types by their names. It would just be mars in this case
-        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marscanyon","marsmountain","marsedge","marshills"),false));
+        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marsbarren","marscanyon","marsmountain","marsvalley","marshills"),false));
     }
 
     public static class WorldTypeBundle extends WorldType {

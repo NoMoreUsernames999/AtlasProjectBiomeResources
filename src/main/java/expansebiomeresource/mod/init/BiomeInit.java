@@ -1,11 +1,7 @@
 package expansebiomeresource.mod.init;
 
 import expansebiomeresource.mod.ExpanseBiomeResource;
-import expansebiomeresource.mod.world.biome.BiomeMarsCanyon;
-import expansebiomeresource.mod.world.biome.BiomeMarsEdge;
-import expansebiomeresource.mod.world.biome.BiomeMarsFlats;
-import expansebiomeresource.mod.world.biome.BiomeMarsHills;
-import expansebiomeresource.mod.world.biome.BiomeMarsMountain;
+import expansebiomeresource.mod.world.biome.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -27,14 +23,16 @@ public class BiomeInit {
 	public static final Biome MARSCANYON = new BiomeMarsCanyon(); 
 	public static final Biome MARSHILLS = new BiomeMarsHills(); 
 	public static final Biome MARSMOUNTAIN = new BiomeMarsMountain(); 
-	public static final Biome MARSEDGE = new BiomeMarsEdge(); 
+	public static final Biome MARSVALLEY = new BiomeMarsValley();
+	public static final Biome MARSBARREN = new BiomeMarsBarren();
 	
 	public static void registerBiomes() {
-		initBiome(MARSFLATS, "marsflats", 10, false, new ArrayList<>(), Arrays.asList(MARSHILLS,MARSMOUNTAIN), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
-		initBiome(MARSCANYON, "marscanyon", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.RIVER, Type.SANDY);
-		initBiome(MARSHILLS, "marshills", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
-		initBiome(MARSMOUNTAIN, "marsmountain", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
-		initBiome(MARSEDGE, "marsedge", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.RARE, Type.SANDY);
+		initBiome(MARSFLATS, "marsflats", 30, false, new ArrayList<>(), Arrays.asList(MARSHILLS, MARSMOUNTAIN), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
+		initBiome(MARSCANYON, "marscanyon", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DRY, Type.RIVER, Type.SANDY);
+		initBiome(MARSHILLS, "marshills", 15, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
+		initBiome(MARSMOUNTAIN, "marsmountain", 15, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
+		initBiome(MARSVALLEY, "marsvalley", 5, true, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.DEAD, Type.DRY, Type.RARE, Type.OCEAN, Type.SANDY);
+		initBiome(MARSBARREN, "marsbarren", 25, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.PLAINS, Type.SANDY);
 	}
 
 	private static void initBiome(Biome biome, String name, int weight, boolean isOceanic, List<Biome> edges, List<Biome> hills, BiomeType biometype, Type... types) {

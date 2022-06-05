@@ -18,9 +18,11 @@ public class GenLayerBiomeOverride extends GenLayer
     private final HashMap<BiomeManager.BiomeType, List<BiomeManager.BiomeEntry>> biomeTypeMap = new HashMap<>();
     private final List<Biome> oceans;
     private final ChunkGeneratorSettings settings;
-    private final Random fallback;
+    private final boolean glitchy;
+    private final Random fallbackRandom;
+    private final BiomeManager.BiomeType fallbackBiomeType;
 
-    public GenLayerBiomeOverride(long seed, GenLayer genLayer, ChunkGeneratorSettings settings, HashMap<BiomeManager.BiomeEntry, BiomeManager.BiomeType> biomes, List<Biome> oceans) {
+    public GenLayerBiomeOverride(long seed, GenLayer genLayer, ChunkGeneratorSettings settings, HashMap<BiomeManager.BiomeEntry, BiomeManager.BiomeType> biomes, List<Biome> oceans, boolean glitchyBiomeTypes) {
         super(seed);
         this.parent = genLayer;
         for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values()) biomeTypeMap.put(type,new ArrayList<>());
@@ -29,8 +31,10 @@ public class GenLayerBiomeOverride extends GenLayer
         for(BiomeManager.BiomeType type : this.biomeTypeMap.keySet()) if(biomeTypeMap.get(type).isEmpty()) toRemove.add(type);
         for(BiomeManager.BiomeType type : toRemove) this.biomeTypeMap.remove(type);
         this.settings = settings;
-        this.fallback = new Random(seed);
+        this.fallbackRandom = new Random(seed);
+        this.fallbackBiomeType = new ArrayList<>(this.biomeTypeMap.keySet()).get(this.fallbackRandom.nextInt(this.biomeTypeMap.keySet().size()));
         this.oceans = oceans;
+        this.glitchy = glitchyBiomeTypes;
     }
 
     @Override
@@ -56,7 +60,8 @@ public class GenLayerBiomeOverride extends GenLayer
                 else if (k == 4 && this.biomeTypeMap.containsKey(BiomeManager.BiomeType.ICY) && !this.biomeTypeMap.get(BiomeManager.BiomeType.ICY).isEmpty()) {
                     aint1[j + i * areaWidth] = Biome.getIdForBiome(getWeightedBiomeEntry(BiomeManager.BiomeType.ICY).biome);
                 }
-                else aint1[j + i * areaWidth] = Biome.getIdForBiome(getWeightedBiomeEntry(new ArrayList<>(this.biomeTypeMap.keySet()).get(this.fallback.nextInt(this.biomeTypeMap.keySet().size()))).biome);
+                else if(this.glitchy) aint1[j + i * areaWidth] = Biome.getIdForBiome(getWeightedBiomeEntry(new ArrayList<>(this.biomeTypeMap.keySet()).get(this.fallbackRandom.nextInt(this.biomeTypeMap.keySet().size()))).biome);
+                else aint1[j + i * areaWidth] = Biome.getIdForBiome(getWeightedBiomeEntry(this.fallbackBiomeType).biome);
             }
         }
         return aint1;

@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class GenLayerHillsOverride extends GenLayer {
 
@@ -37,14 +36,14 @@ public class GenLayerHillsOverride extends GenLayer {
                 Biome biome = Biome.getBiomeForId(k);
                 boolean flag1 = biome != null && biome.isMutation();
                 if (k != 0 && l >= 2 && (l - 2) % 29 == 1 && !flag1) {
-                    Biome biome3 = Biome.getMutationForBiome(Objects.requireNonNull(biome));
+                    Biome biome3 = Biome.getMutationForBiome(biome);
                     aint2[j + i * areaWidth] = biome3 == null ? k : Biome.getIdForBiome(biome3);
                 }
                 else if (this.nextInt(3) != 0 && !flag) aint2[j + i * areaWidth] = k;
                 else {
                     Biome biome1 = biome;
                     if(this.biomes!=null && this.biomes.containsKey(biome) && this.biomes.get(biome)!=null) biome1 = this.biomes.get(biome);
-                    int j2 = Biome.getIdForBiome(Objects.requireNonNull(biome1));
+                    int j2 = Biome.getIdForBiome(biome1);
                     if (flag && j2 != k) {
                         Biome biome2 = Biome.getMutationForBiome(biome1);
                         j2 = biome2 == null ? k : Biome.getIdForBiome(biome2);

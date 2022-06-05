@@ -23,12 +23,12 @@ public class GenLayerBiomeEdgeOverride extends GenLayer {
         for(int i = 0; i < areaHeight; ++i) {
             for(int j = 0; j < areaWidth; ++j) {
                 this.initChunkSeed(j + areaX, i + areaY);
-                int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
-                Biome curBiome = Biome.getBiome(k);
+                int biome = aint[j + 1 + (i + 1) * (areaWidth + 2)];
+                Biome curBiome = Biome.getBiome(biome);
                 if(curBiome!=null && this.biomes.get(curBiome)!=null) {
                     Biome transform = this.biomes.get(curBiome);
-                    if (!this.replaceBiomeEdgeIfNecessary(aint, aint1, j, i, areaWidth, k, Biome.getIdForBiome(curBiome), Biome.getIdForBiome(transform)) && !this.replaceBiomeEdge(aint, aint1, j, i, areaWidth, k, Biome.getIdForBiome(curBiome), Biome.getIdForBiome(transform))) {
-                        aint1[j + i * areaWidth] = k;
+                    if (!this.replaceBiomeEdgeIfNecessary(aint, aint1, j, i, areaWidth, biome, Biome.getIdForBiome(curBiome), Biome.getIdForBiome(transform)) && !this.replaceBiomeEdge(aint, aint1, j, i, areaWidth, biome, Biome.getIdForBiome(curBiome), Biome.getIdForBiome(transform))) {
+                        aint1[j + i * areaWidth] = biome;
                     }
                 }
             }

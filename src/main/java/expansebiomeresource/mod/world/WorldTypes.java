@@ -24,13 +24,14 @@ public class WorldTypes {
 
     public static void init() {
         //Note that through JED you can reference world types by their names. It would just be mars in this case
-        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marscanyon","marsmountain","marsedge","marshills")));
+        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marscanyon","marsmountain","marsedge","marshills"),false));
     }
 
     public static class WorldTypeBundle extends WorldType {
         private final HashMap<BiomeManager.BiomeEntry, BiomeManager.BiomeType> biomes = new HashMap<>();
+        private final boolean allowGlitchedBiomeTypes;
 
-        public WorldTypeBundle(String name, List<String> biomes) {
+        public WorldTypeBundle(String name, List<String> biomes, boolean allowGlitchedBiomeTypes) {
             super(name);
             for(String biome : biomes) {
                 if(BiomeInit.biomeMap.containsKey(biome)) this.biomes.put(BiomeInit.biomeMap.get(biome),BiomeInit.typeMap.get(biome));
@@ -55,11 +56,12 @@ public class WorldTypes {
                     this.biomes.put(new BiomeManager.BiomeEntry(Biomes.PLAINS, 10),type);
                 }
             }
+            this.allowGlitchedBiomeTypes = allowGlitchedBiomeTypes;
         }
 
         @Override
         public @Nonnull BiomeProvider getBiomeProvider(@Nonnull World world) {
-            return new CustomBiomeProvider(this.biomes,world.getSeed(),world.getWorldInfo(),this);
+            return new CustomBiomeProvider(this.biomes,world.getSeed(),world.getWorldInfo(),this,this.allowGlitchedBiomeTypes);
         }
 
         @Override
@@ -73,17 +75,17 @@ public class WorldTypes {
         private final List<Biome> biomes = new ArrayList<>();
         private final Random random;
 
-        private CustomBiomeProvider(HashMap<BiomeManager.BiomeEntry, BiomeManager.BiomeType> biomes, long seed, WorldInfo info, WorldType worldType) {
+        private CustomBiomeProvider(HashMap<BiomeManager.BiomeEntry, BiomeManager.BiomeType> biomes, long seed, WorldInfo info, WorldType worldType, boolean allowGlitchedBiomeTypes) {
             this.biomeMap = biomes;
             for(BiomeManager.BiomeEntry entry : biomes.keySet()) this.biomes.add(entry.biome);
             this.random = new Random(seed);
             if(!info.getGeneratorOptions().isEmpty()) this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(info.getGeneratorOptions()).build();
-            GenLayer[] genlayer = customBiomeGenerators(seed,this.settings,worldType);
+            GenLayer[] genlayer = customBiomeGenerators(seed,this.settings,worldType,allowGlitchedBiomeTypes);
             this.genBiomes = genlayer[0];
             this.biomeIndexLayer = genlayer[1];
         }
 
-        public GenLayer[] customBiomeGenerators(long seed, ChunkGeneratorSettings settings, WorldType worldType) {
+        public GenLayer[] customBiomeGenerators(long seed, ChunkGeneratorSettings settings, WorldType worldType, boolean allowGlitchedBiomeTypes) {
             ArrayList<BiomeManager.BiomeEntry> oceans = new ArrayList<>();
             for(BiomeManager.BiomeEntry entry : this.biomeMap.keySet()) {
                 if(BiomeDictionary.getTypes(entry.biome).contains(BiomeDictionary.Type.OCEAN)) oceans.add(entry);
@@ -93,6 +95,13 @@ public class WorldTypes {
             for(BiomeManager.BiomeEntry entry : this.biomeMap.keySet()) {
                 if(BiomeDictionary.getTypes(entry.biome).contains(BiomeDictionary.Type.MUSHROOM)) mushrooms.add(entry);
             }
+
+            ArrayList<BiomeManager.BiomeEntry> rivers = new ArrayList<>();
+            for(BiomeManager.BiomeEntry entry : this.biomeMap.keySet()) {
+                if(BiomeDictionary.getTypes(entry.biome).contains(BiomeDictionary.Type.RIVER)) rivers.add(entry);
+            }
+            for(BiomeManager.BiomeEntry entry : rivers) biomeMap.remove(entry);
+            if(this.biomeMap.isEmpty()) for(BiomeManager.BiomeType type : BiomeManager.BiomeType.values()) this.biomeMap.put(new BiomeManager.BiomeEntry(Biomes.PLAINS, 10),type);
 
             GenLayer genlayer = new GenLayerIsland(1L);
             genlayer = new GenLayerFuzzyZoom(2000L, genlayer);
@@ -124,11 +133,6 @@ public class WorldTypes {
             }
 
             i = GenLayer.getModdedBiomeSize(worldType, i);
-
-            ArrayList<BiomeManager.BiomeEntry> rivers = new ArrayList<>();
-            for(BiomeManager.BiomeEntry entry : this.biomeMap.keySet()) {
-                if(BiomeDictionary.getTypes(entry.biome).contains(BiomeDictionary.Type.RIVER)) rivers.add(entry);
-            }
             ArrayList<Biome> actualOceans = new ArrayList<>();
             for(BiomeManager.BiomeEntry entry : oceans) actualOceans.add(entry.biome);
             ArrayList<Biome> actualRivers = new ArrayList<>();
@@ -137,7 +141,7 @@ public class WorldTypes {
             GenLayer lvt_7_1_ = GenLayerZoom.magnify(1000L, genlayer4, 0);
             GenLayer genlayerriverinit = lvt_7_1_;
             if(!rivers.isEmpty()) genlayerriverinit = new GenLayerRiverInit(100L, lvt_7_1_);
-            GenLayer genlayerbiomeedge = this.getBiomeLayer(genlayer4, settings,actualOceans);
+            GenLayer genlayerbiomeedge = this.getBiomeLayer(genlayer4, settings,actualOceans,allowGlitchedBiomeTypes);
             GenLayer lvt_9_1_ = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
             GenLayer genlayerhills = new GenLayerHillsOverride(1000L, genlayerbiomeedge, lvt_9_1_, pairRandomHillVariant());
             GenLayer genlayer5 = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
@@ -159,11 +163,11 @@ public class WorldTypes {
             return new GenLayer[] {genlayerrivermix, genlayer3, genlayerrivermix};
         }
 
-        public GenLayer getBiomeLayer(GenLayer parentLayer, ChunkGeneratorSettings chunkSettings, List<Biome> oceans) {
-            GenLayer ret = new GenLayerBiomeOverride(200L, parentLayer, chunkSettings, this.biomeMap, oceans);
+        public GenLayer getBiomeLayer(GenLayer parentLayer, ChunkGeneratorSettings chunkSettings, List<Biome> oceans, boolean allowGlitchedBiomeTypes) {
+            GenLayer ret = new GenLayerBiomeOverride(200L, parentLayer, chunkSettings, this.biomeMap, oceans, allowGlitchedBiomeTypes);
             ret = GenLayerZoom.magnify(1000L, ret, 2);
             HashMap<Biome, Biome> edges = pairRandomEdgeVariant();
-            if(edges!=null) ret = new GenLayerBiomeEdgeOverride(1000L, ret,pairRandomEdgeVariant());
+            //if(edges!=null) ret = new GenLayerBiomeEdgeOverride(1000L, ret,pairRandomEdgeVariant());
             return ret;
         }
 

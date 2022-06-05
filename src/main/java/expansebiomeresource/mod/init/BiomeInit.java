@@ -14,10 +14,7 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @SuppressWarnings("SameParameterValue")
 public class BiomeInit {
@@ -33,11 +30,11 @@ public class BiomeInit {
 	public static final Biome MARSEDGE = new BiomeMarsEdge(); 
 	
 	public static void registerBiomes() {
-		initBiome(MARSFLATS, "marsflats", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
+		initBiome(MARSFLATS, "marsflats", 10, false, new ArrayList<>(), Arrays.asList(MARSHILLS,MARSMOUNTAIN), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
 		initBiome(MARSCANYON, "marscanyon", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.RIVER, Type.SANDY);
-		initBiome(MARSHILLS, "marshills", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
-		initBiome(MARSMOUNTAIN, "marsmountain", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
-		initBiome(MARSEDGE, "marsedge", 10, false, Arrays.asList(MARSMOUNTAIN, MARSFLATS), new ArrayList<>(), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.RARE, Type.SANDY);
+		initBiome(MARSHILLS, "marshills", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
+		initBiome(MARSMOUNTAIN, "marsmountain", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
+		initBiome(MARSEDGE, "marsedge", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.RARE, Type.SANDY);
 	}
 
 	private static void initBiome(Biome biome, String name, int weight, boolean isOceanic, List<Biome> edges, List<Biome> hills, BiomeType biometype, Type... types) {

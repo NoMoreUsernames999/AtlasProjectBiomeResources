@@ -9,7 +9,7 @@ public class BiomeMarsValley extends Biome {
 
 	public BiomeMarsValley() {
 		
-		super(new BiomeProperties("Mars_Valley").setBaseHeight(-1.7f).setHeightVariation(0.2f).setRainfall(0.0f).setRainDisabled().setTemperature(0.3f).setWaterColor(14837760));
+		super(new BiomeProperties("Dead Ocean").setBaseHeight(-1.7f).setHeightVariation(0.2f).setRainfall(0.0f).setRainDisabled().setTemperature(0.3f).setWaterColor(14837760));
 		
 		topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, EnumType.RED_SAND); 
 		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();

@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.12.2-0.1.0'
+version = '1.12.2-0.3.0-preA'
 group = 'expansebiomeresource.mod'
 archivesBaseName = 'expansebiomeresource'
 
@@ -53,6 +53,7 @@ dependencies {
 
     //mods
     implementation fg.deobf("curse.maven:just-enough-dimensions-254317:2932048")
+  //  implementation fg.deobf("curse.maven:biomes-o-plenty-220318:2842510")
 }
 
 processResources {

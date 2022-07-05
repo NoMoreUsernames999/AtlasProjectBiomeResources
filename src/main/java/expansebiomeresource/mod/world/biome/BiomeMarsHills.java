@@ -9,11 +9,10 @@ public class BiomeMarsHills extends Biome {
 
 	public BiomeMarsHills() {
 		
-		super(new BiomeProperties("Mars_Hills").setBaseHeight(1.7f).setHeightVariation(0.2f).setRainfall(0.0f).setRainDisabled().setTemperature(1.0f).setWaterColor(14837760));
-		
+		super(new BiomeProperties("Martian Hills").setBaseHeight(1.7f).setHeightVariation(0.2f).setRainfall(0.0f).setRainDisabled().setTemperature(1.0f).setWaterColor(14837760));
+
 		topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, EnumType.RED_SAND); 
 		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();
-		
 	}
 	
 

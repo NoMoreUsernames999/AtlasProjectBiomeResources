@@ -8,7 +8,7 @@ public class BiomeTorusIsland extends Biome {
 
     public BiomeTorusIsland() {
 
-        super(new BiomeProperties("Island").setBaseHeight(8.75f).setHeightVariation(0.18f).setRainfall(0.4f).setTemperature(0.8f));
+        super(new BiomeProperties("Island").setBaseHeight(7.85f).setHeightVariation(0.18f).setRainfall(0.4f).setTemperature(0.8f));
 
         topBlock = Blocks.GRASS.getDefaultState();
         fillerBlock = Blocks.DIRT.getDefaultState();

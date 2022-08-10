@@ -7,7 +7,7 @@ public class BiomeTorusDunesH extends Biome {
 
     public BiomeTorusDunesH() {
 
-        super(new BiomeProperties("Dune Hills").setBaseHeight(5.0f).setHeightVariation(0.2f).setRainfall(0.4f).setTemperature(0.7f));
+        super(new BiomeProperties("Dune Hills").setBaseHeight(4.1f).setHeightVariation(0.2f).setRainfall(0.4f).setTemperature(0.7f));
 
         topBlock = Blocks.SAND.getDefaultState();
         fillerBlock = Blocks.GRAVEL.getDefaultState();

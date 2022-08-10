@@ -7,7 +7,7 @@ public class BiomeTitanOcean extends Biome {
 
     public BiomeTitanOcean() {
 
-        super(new BiomeProperties("Titan Ocean").setBaseHeight(-0.55f).setHeightVariation(0.1f).setRainfall(0.5f).setTemperature(0.5f).setWaterColor(000000));
+        super(new BiomeProperties("Titan Ocean").setBaseHeight(-0.55f).setHeightVariation(0.1f).setRainfall(0.0f).setRainDisabled().setTemperature(0.5f).setWaterColor(000000));
 
         topBlock = Blocks.GRAVEL.getDefaultState();
         fillerBlock = Blocks.COBBLESTONE.getDefaultState();

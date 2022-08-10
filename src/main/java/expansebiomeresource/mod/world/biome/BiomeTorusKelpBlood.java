@@ -7,7 +7,7 @@ public class BiomeTorusKelpBlood extends Biome {
 
     public BiomeTorusKelpBlood() {
 
-        super(new BiomeProperties("Blood Kelp Forest").setBaseHeight(-0.3f).setHeightVariation(0.2f).setRainfall(0.4f).setTemperature(0.4f));
+        super(new BiomeProperties("Blood Kelp Forest").setBaseHeight(-1.2f).setHeightVariation(0.2f).setRainfall(0.4f).setTemperature(0.4f));
 
         topBlock = Blocks.GRAVEL.getDefaultState();
         fillerBlock = Blocks.STONE.getDefaultState();

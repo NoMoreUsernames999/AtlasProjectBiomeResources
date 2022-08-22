@@ -7,7 +7,7 @@ public class BiomeTorusMushroom extends Biome {
 
     public BiomeTorusMushroom() {
 
-        super(new BiomeProperties("Aquatic Mushroom Forest").setBaseHeight(4.83f).setHeightVariation(0.015f).setRainfall(0.4f).setTemperature(0.7f));
+        super(new BiomeProperties("Aquatic Mushroom Forest").setBaseHeight(3.93f).setHeightVariation(0.015f).setRainfall(0.4f).setTemperature(0.7f));
 
         topBlock = Blocks.DIRT.getDefaultState();
         fillerBlock = Blocks.GRAVEL.getDefaultState();

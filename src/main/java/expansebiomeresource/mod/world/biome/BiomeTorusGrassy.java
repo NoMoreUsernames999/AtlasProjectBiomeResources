@@ -7,7 +7,7 @@ public class BiomeTorusGrassy extends Biome {
 
     public BiomeTorusGrassy() {
 
-        super(new BiomeProperties("Grassy Plateaus").setBaseHeight(6.1f).setHeightVariation(0.007f).setRainfall(0.4f).setTemperature(0.7f));
+        super(new BiomeProperties("Grassy Plateaus").setBaseHeight(5.2f).setHeightVariation(0.007f).setRainfall(0.4f).setTemperature(0.7f));
 
         topBlock = Blocks.SAND.getDefaultState();
         fillerBlock = Blocks.GRAVEL.getDefaultState();

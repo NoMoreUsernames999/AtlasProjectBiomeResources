@@ -7,7 +7,7 @@ public class BiomeTorusBulbs extends Biome {
 
     public BiomeTorusBulbs() {
 
-        super(new BiomeProperties("Bulb Zone").setBaseHeight(2.4f).setHeightVariation(0.15f).setRainfall(0.4f).setTemperature(0.7f));
+        super(new BiomeProperties("Bulb Zone").setBaseHeight(1.5f).setHeightVariation(0.15f).setRainfall(0.4f).setTemperature(0.7f));
 
         topBlock = Blocks.CLAY.getDefaultState();
         fillerBlock = Blocks.GRAVEL.getDefaultState();

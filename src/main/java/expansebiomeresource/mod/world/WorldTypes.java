@@ -24,13 +24,20 @@ public class WorldTypes {
 
     public static void init() {
         //Note that through JED you can reference world types by their names. It would just be mars in this case
-       // WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marsbarren","marscanyon","marsmountain","marsvalley","marshills"),false));
-       // WORLD_TYPE_BUNDLES.put("luna", new WorldTypeBundle("luna", Arrays.asList("lunaflats","lunavalley","lunahills"),false));
-       // WORLD_TYPE_BUNDLES.put("torus3", new WorldTypeBundle("torus3", Arrays.asList("torus3mesa","torus3desert","torus3mesaspike"),false));
-       // WORLD_TYPE_BUNDLES.put("torus2", new WorldTypeBundle("torus2", Arrays.asList("torus2shallows","torus2kelp","torus2grassy","torus2crag","torus2blood","torus2dunes","torus2mushroom","torus2grandreef","torus2grandpit","torus2reef","torus2bulbs","torus2islandw","torus2island"),false));
-       // WORLD_TYPE_BUNDLES.put("torusD", new WorldTypeBundle("torusD", Arrays.asList("torusdice","torusdiceh","torusdspikes","torusdhills"),false));
-       // WORLD_TYPE_BUNDLES.put("venus", new WorldTypeBundle("venus", Arrays.asList("venusflats","venuscrater","venushills","venusmountain","venusridge"),false));
+        WORLD_TYPE_BUNDLES.put("mars",new WorldTypeBundle("mars", Arrays.asList("marsflats","marsbarren","marscanyon","marsmountain","marsvalley","marshills"),false));
+        WORLD_TYPE_BUNDLES.put("luna", new WorldTypeBundle("luna", Arrays.asList("lunaflats","lunavalley","lunahills"),false));
+        WORLD_TYPE_BUNDLES.put("cytan", new WorldTypeBundle("cytan", Arrays.asList("torus3mesa","torus3desert","torus3mesaspike"),false));
+        WORLD_TYPE_BUNDLES.put("argius", new WorldTypeBundle("argius", Arrays.asList("torus2shallows","torus2kelp","torus2grassy","torus2crag","torus2blood","torus2dunes","torus2mushroom","torus2grandreef","torus2grandpit","torus2reef","torus2bulbs","torus2islandw","torus2island"),false));
+        WORLD_TYPE_BUNDLES.put("torusD", new WorldTypeBundle("torusD", Arrays.asList("torusdice","torusdiceh","torusdspikes","torusdhills"),false));
+        WORLD_TYPE_BUNDLES.put("ganes", new WorldTypeBundle("ganes", Arrays.asList("fungalcaverns","crystalcaverns","forestcaverns"),false));
+        WORLD_TYPE_BUNDLES.put("venus", new WorldTypeBundle("venus", Arrays.asList("venusflats","venuscrater","venushills","venusmountain","venusridge"),false));
         WORLD_TYPE_BUNDLES.put("titan", new WorldTypeBundle("titan", Arrays.asList("marscanyon","titanflats","titanmountains","titanhills","titanocean"),false));
+        WORLD_TYPE_BUNDLES.put("enceladus", new WorldTypeBundle("enceladus", Arrays.asList("enceladuscanyon","enceladuswastes","enceladusplateau","enceladuscrater"),false));
+        WORLD_TYPE_BUNDLES.put("io", new WorldTypeBundle("io", Arrays.asList("iowastes","iospires","iohills","iosulfur"),false));
+        WORLD_TYPE_BUNDLES.put("arrakis", new WorldTypeBundle("arrakis", Arrays.asList("arrakisdesert","arrakishills","arrakisdunes","arrakissands"),false));
+        WORLD_TYPE_BUNDLES.put("chibirus", new WorldTypeBundle("chibirus", Arrays.asList("chibirusdesert","chibirusridge","chibirusmountain","chibiruswastes","chibiruscaves"),false));
+        WORLD_TYPE_BUNDLES.put("pythrea", new WorldTypeBundle("pythrea", Arrays.asList("pythreashallows","pythreaocean","pythreaislands","pythrearidge"),false));
+        WORLD_TYPE_BUNDLES.put("plocury", new WorldTypeBundle("plocury", Arrays.asList("plocurydesert","plocuryxeric","plocuryriver","plocuryoasis","plocurybrush"),false));
     }
 
     public static class WorldTypeBundle extends WorldType {

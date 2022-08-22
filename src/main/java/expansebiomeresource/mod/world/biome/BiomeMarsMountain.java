@@ -9,7 +9,7 @@ public class BiomeMarsMountain extends Biome {
 
 	public BiomeMarsMountain() {
 		
-		super(new BiomeProperties("Olympus Mons").setBaseHeight(6.56f).setHeightVariation(0.8f).setRainfall(0.0f).setRainDisabled().setTemperature(0.8f).setWaterColor(14837760));
+		super(new BiomeProperties("Olympus Mons").setBaseHeight(6.26f).setHeightVariation(0.8f).setRainfall(0.0f).setRainDisabled().setTemperature(0.8f).setWaterColor(14837760));
 		
 		topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, EnumType.RED_SAND); 
 		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();

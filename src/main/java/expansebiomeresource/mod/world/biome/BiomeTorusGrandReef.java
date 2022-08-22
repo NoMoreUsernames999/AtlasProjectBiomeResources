@@ -7,7 +7,7 @@ public class BiomeTorusGrandReef extends Biome {
 
     public BiomeTorusGrandReef() {
 
-        super(new BiomeProperties("Grand Reef").setBaseHeight(2.0f).setHeightVariation(0.255f).setRainfall(0.4f).setTemperature(0.7f));
+        super(new BiomeProperties("Grand Reef").setBaseHeight(1.1f).setHeightVariation(0.255f).setRainfall(0.4f).setTemperature(0.7f));
 
         topBlock = Blocks.GRAVEL.getDefaultState();
         fillerBlock = Blocks.GRAVEL.getDefaultState();

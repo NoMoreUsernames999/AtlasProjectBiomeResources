@@ -7,7 +7,7 @@ public class BiomeTorusKelp extends Biome {
 
     public BiomeTorusKelp() {
 
-        super(new BiomeProperties("Creepvine Forest").setBaseHeight(6.7f).setHeightVariation(0.018f).setRainfall(0.4f).setTemperature(0.8f));
+        super(new BiomeProperties("Creepvine Forest").setBaseHeight(5.8f).setHeightVariation(0.018f).setRainfall(0.4f).setTemperature(0.8f));
 
         topBlock = Blocks.SAND.getDefaultState();
         fillerBlock = Blocks.DIRT.getDefaultState();

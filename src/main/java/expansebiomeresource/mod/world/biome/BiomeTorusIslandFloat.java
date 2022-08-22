@@ -7,7 +7,7 @@ public class BiomeTorusIslandFloat extends Biome {
 
     public BiomeTorusIslandFloat() {
 
-        super(new BiomeProperties("Floating Islands").setBaseHeight(1.0f).setHeightVariation(0.38f).setRainfall(0.4f).setTemperature(0.7f));
+        super(new BiomeProperties("Floating Islands").setBaseHeight(-0.9f).setHeightVariation(0.38f).setRainfall(0.4f).setTemperature(0.7f));
 
         topBlock = Blocks.SANDSTONE.getDefaultState();
         fillerBlock = Blocks.GRAVEL.getDefaultState();

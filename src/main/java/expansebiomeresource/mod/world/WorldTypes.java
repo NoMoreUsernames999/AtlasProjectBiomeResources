@@ -36,7 +36,7 @@ public class WorldTypes {
         WORLD_TYPE_BUNDLES.put("io", new WorldTypeBundle("io", Arrays.asList("iowastes","iospires","iohills","iosulfur"),false));
         WORLD_TYPE_BUNDLES.put("arrakis", new WorldTypeBundle("arrakis", Arrays.asList("arrakisdesert","arrakishills","arrakisdunes","arrakissands"),false));
         WORLD_TYPE_BUNDLES.put("chibirus", new WorldTypeBundle("chibirus", Arrays.asList("chibirusdesert","chibirusridge","chibirusmountain","chibiruswastes","chibiruscaves"),false));
-        WORLD_TYPE_BUNDLES.put("pythrea", new WorldTypeBundle("pythrea", Arrays.asList("pythreashallows","pythreaocean","pythreaislands","pythreatrench","pythrearidge"),false));
+        WORLD_TYPE_BUNDLES.put("pythrea", new WorldTypeBundle("pythrea", Arrays.asList("pythreashallows","pythreaocean","pythreaislands","pythrearidge"),false));
         WORLD_TYPE_BUNDLES.put("plocury", new WorldTypeBundle("plocury", Arrays.asList("plocurydesert","plocuryxeric","plocuryriver","plocuryoasis","plocurybrush"),false));
     }
 

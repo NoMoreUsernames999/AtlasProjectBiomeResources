@@ -19,7 +19,6 @@ public class BiomeTorusDIceH extends Biome {
     public BiomeTorusDIceH() {
 
         super(new BiomeProperties("Rocky Ice Wastes").setBaseHeight(-0.25f).setHeightVariation(0.35f).setRainfall(0.0f).setRainDisabled().setTemperature(0.2f));
-
         topBlock = Blocks.ICE.getDefaultState();
         fillerBlock = Blocks.PACKED_ICE.getDefaultState();
         this.decorator.generateFalls = false;
@@ -38,7 +37,7 @@ public class BiomeTorusDIceH extends Biome {
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
         if (this.pillarNoise == null || this.pillarRoofNoise == null || this.worldSeed != worldIn.getSeed()) {
             Random random = new Random(this.worldSeed);
-            this.pillarNoise = new NoiseGeneratorPerlin(random, 7);
+            this.pillarNoise = new NoiseGeneratorPerlin(random, 1);
             this.pillarRoofNoise = new NoiseGeneratorPerlin(random, 1);
         }
 
@@ -46,7 +45,7 @@ public class BiomeTorusDIceH extends Biome {
         double d4 = 0.0;
         int i = (x & -16) + (z & 15);
         int j = (z & -16) + (x & 15);
-        double d0 = Math.min(Math.abs(noiseVal), this.pillarNoise.getValue((double)i * 0.25, (double)j * 0.25));
+        double d0 = Math.min(Math.abs(noiseVal), this.pillarNoise.getValue((double)i * 0.05, (double)j * 0.05));
         if (d0 > 0.0) {
             double d2 = Math.abs(this.pillarRoofNoise.getValue((double)i * 0.001953125, (double)j * 0.001953125));
             d4 = d0 * d0 * 2.5;

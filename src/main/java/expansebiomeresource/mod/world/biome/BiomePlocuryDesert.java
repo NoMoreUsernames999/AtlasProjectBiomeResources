@@ -25,7 +25,5 @@ public class BiomePlocuryDesert extends BOPOverworldBiome {
         this.clearWeights();
 
         this.decorator.generateFalls = false;
-
-        this.addGenerator("lakes", GeneratorStage.SAND, (new GeneratorLakes.Builder()).amountPerChunk(6.0F).liquid(Blocks.LAVA.getDefaultState()).lineWith(Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.YELLOW)).grassBorderWith(Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.SILVER)).scatterYMethod(GeneratorUtils.ScatterYMethod.ABOVE_SURFACE).create());
     }
 }

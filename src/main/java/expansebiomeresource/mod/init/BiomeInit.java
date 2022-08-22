@@ -111,11 +111,8 @@ public class BiomeInit {
 	public static final Biome PYTHREASHALLOWS = new BiomePythreaShallows();
 	public static final Biome PYTHREAOCEAN = new BiomePythreaOcean();
 	public static final Biome PYTHREAISLANDS = new BiomePythreaIslands();
-	public static final Biome PYTHREATRENCH = new BiomePythreaTrench();
+	//public static final Biome PYTHREATRENCH = new BiomePythreaTrench();
 	public static final Biome PYTHREARIDGE = new BiomePythreaRidge();
-	//public static final Biome TESTBOP = new BiomeTestBog();
-	//public static final Biome TESTPVJ = new BiomeOvergrownSpires(new Biome.BiomeProperties("Arrakis Spires"));
-
 	public static final Biome PLOCURYDESERT = new BiomePlocuryDesert();
 	public static final Biome PLOCURYBRUSH = new BiomePlocuryBrush();
 	//public static final Biome PLOCURYOUTBACK = new BiomePlocuryOutback();
@@ -158,9 +155,9 @@ public class BiomeInit {
 		initBiome(FORESTCAVERNS, "forestcaverns", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.LUSH, Type.DENSE, Type.FOREST);
 
 		//Mars
-		initBiome(MARSFLATS, "marsflats", 30, false, new ArrayList<>(), Arrays.asList(MARSHILLS, MARSMOUNTAIN), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
+		initBiome(MARSFLATS, "marsflats", 30, false, new ArrayList<>(), Arrays.asList(MARSHILLS), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
 		initBiome(MARSCANYON, "marscanyon", 3, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DRY, Type.RIVER, Type.SANDY);
-		initBiome(MARSHILLS, "marshills", 22, false, new ArrayList<>(), Arrays.asList(MARSFLATS), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
+		initBiome(MARSHILLS, "marshills", 22, false, new ArrayList<>(), Arrays.asList(MARSMOUNTAIN), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
 		initBiome(MARSMOUNTAIN, "marsmountain", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
 		initBiome(MARSVALLEY, "marsvalley", 8, true, new ArrayList<>(), Arrays.asList(MARSBARREN), BiomeType.COOL, Type.DEAD, Type.DRY, Type.RARE, Type.OCEAN, Type.SANDY);
 		initBiome(MARSBARREN, "marsbarren", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.PLAINS, Type.SANDY);
@@ -212,9 +209,9 @@ public class BiomeInit {
 
 		//Pythrea
 		initBiome(PYTHREASHALLOWS, "pythreashallows", 20, false, new ArrayList<>(), Arrays.asList(PYTHREAISLANDS), BiomeType.WARM, Type.WATER, Type.OCEAN);
-		initBiome(PYTHREAOCEAN, "pythreaocean", 17, false, new ArrayList<>(), Arrays.asList(PYTHREATRENCH), BiomeType.WARM, Type.WATER);
-		initBiome(PYTHREATRENCH, "pythreatrench", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.SPOOKY, Type.WATER, Type.OCEAN);
-		initBiome(PYTHREAISLANDS, "pythreaIslands", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.BEACH);
+		initBiome(PYTHREAOCEAN, "pythreaocean", 17, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.WATER);
+		//initBiome(PYTHREATRENCH, "pythreatrench", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.SPOOKY, Type.WATER, Type.OCEAN);
+		initBiome(PYTHREAISLANDS, "pythreaislands", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.SANDY);
 		initBiome(PYTHREARIDGE, "pythrearidge", 18, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.BEACH, Type.RIVER);
 
 		//Uranomi

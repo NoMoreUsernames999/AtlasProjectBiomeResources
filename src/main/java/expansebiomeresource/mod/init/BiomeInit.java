@@ -1,19 +1,14 @@
 package expansebiomeresource.mod.init;
 
-import biomesoplenty.api.generation.GeneratorStage;
-import biomesoplenty.api.generation.IGenerator;
-import biomesoplenty.common.world.GenerationManager;
 import expansebiomeresource.mod.ExpanseBiomeResource;
 import expansebiomeresource.mod.world.biome.*;
-import net.minecraft.world.biome.*;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import vibrantjourneys.biomes.BiomeOvergrownSpires;
-
 
 import java.util.*;
 
@@ -124,30 +119,30 @@ public class BiomeInit {
 
 	public static void registerBiomes() {
 		//Cytan
-		initBiome(TORUS3MESA, "torus3mesa", 3, false, new ArrayList<>(), Arrays.asList(TORUS3DESERT), BiomeType.WARM, Type.HOT);
+		initBiome(TORUS3MESA, "torus3mesa", 3, false, new ArrayList<>(), Collections.singletonList(TORUS3DESERT), BiomeType.WARM, Type.HOT);
 		initBiome(TORUS3MESASPIKE, "torus3mesaspike", 5, false, new ArrayList<>(), Arrays.asList(TORUS3DESERT, TORUS3MESA), BiomeType.WARM, Type.HOT);
 		initBiome(TORUS3DESERT, "torus3desert", 7, false, new ArrayList<>(), Arrays.asList(TORUS3MESASPIKE, TORUS3MESA), BiomeType.DESERT, Type.SANDY, Type.HOT);
 
 		//Argius
 		initBiome(TORUS2SHALLOWS, "torus2shallows", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.PLAINS, Type.SANDY, Type.WET);
-		initBiome(TORUS2KELP, "torus2kelp", 25, false, new ArrayList<>(), Arrays.asList(TORUS2SHALLOWS), BiomeType.WARM, Type.PLAINS, Type.SANDY, Type.WET);
+		initBiome(TORUS2KELP, "torus2kelp", 25, false, new ArrayList<>(), Collections.singletonList(TORUS2SHALLOWS), BiomeType.WARM, Type.PLAINS, Type.SANDY, Type.WET);
 		initBiome(TORUS2GRASSY, "torus2grassy", 25, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.PLAINS, Type.SANDY, Type.WET);
 		initBiome(TORUS2ISLAND, "torus2island", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.MOUNTAIN, Type.HILLS, Type.BEACH);
-		initBiome(TORUS2CRAG, "torus2crag", 15, false, new ArrayList<>(), Arrays.asList(TORUS2ISLAND), BiomeType.COOL, Type.DEAD, Type.HILLS, Type.WET);
+		initBiome(TORUS2CRAG, "torus2crag", 15, false, new ArrayList<>(), Collections.singletonList(TORUS2ISLAND), BiomeType.COOL, Type.DEAD, Type.HILLS, Type.WET);
 		initBiome(TORUS2BLOOD, "torus2blood", 15, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.HILLS, Type.WET);
-		initBiome(TORUS2DUNES, "torus2dunes", 25, false, new ArrayList<>(), Arrays.asList(TORUS2MUSHROOM), BiomeType.COOL, Type.SANDY, Type.WET);
+		initBiome(TORUS2DUNES, "torus2dunes", 25, false, new ArrayList<>(), Collections.singletonList(TORUS2MUSHROOM), BiomeType.COOL, Type.SANDY, Type.WET);
 		initBiome(TORUS2MUSHROOM, "torus2mushroom", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.RARE, Type.WET);
-		initBiome(TORUS2GRAND, "torus2grandreef", 20, false, new ArrayList<>(), Arrays.asList(TORUS2GRANDPIT), BiomeType.COOL, Type.SPOOKY, Type.WET);
+		initBiome(TORUS2GRAND, "torus2grandreef", 20, false, new ArrayList<>(), Collections.singletonList(TORUS2GRANDPIT), BiomeType.COOL, Type.SPOOKY, Type.WET);
 		initBiome(TORUS2GRANDPIT, "torus2grandpit", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.HILLS, Type.SPOOKY, Type.WET);
 		initBiome(TORUS2REEF, "torus2reef", 3, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.WET, Type.RIVER);
 		initBiome(TORUS2BULBS, "torus2bulbs", 23, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.WET, Type.PLAINS);
 		initBiome(TORUS2ISLANDW, "torus2islandw", 15, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.MOUNTAIN, Type.WET);
 
 		//Torus_D
-		initBiome(TORUSDICE, "torusdice", 20, false, new ArrayList<>(), Arrays.asList(TORUSDICEH), BiomeType.ICY, Type.PLAINS, Type.COLD);
-		initBiome(TORUSDICEH, "torusdiceh", 20, false, new ArrayList<>(), Arrays.asList(TORUSDHILLS), BiomeType.ICY, Type.PLAINS, Type.COLD);
+		initBiome(TORUSDICE, "torusdice", 20, false, new ArrayList<>(), Collections.singletonList(TORUSDICEH), BiomeType.ICY, Type.PLAINS, Type.COLD);
+		initBiome(TORUSDICEH, "torusdiceh", 20, false, new ArrayList<>(), Collections.singletonList(TORUSDHILLS), BiomeType.ICY, Type.PLAINS, Type.COLD);
 		initBiome(TORUSDHILLS, "torusdhills", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.ICY, Type.HILLS, Type.COLD);
-		initBiome(TORUSDSPIKES, "torusdspikes", 18, false, new ArrayList<>(), Arrays.asList(TORUSDICE), BiomeType.ICY, Type.SPOOKY, Type.COLD);
+		initBiome(TORUSDSPIKES, "torusdspikes", 18, false, new ArrayList<>(), Collections.singletonList(TORUSDICE), BiomeType.ICY, Type.SPOOKY, Type.COLD);
 
 		//Ganes
 		initBiome(CRYSTALCAVERNS, "crystalcaverns", 15, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.HILLS, Type.RARE);
@@ -155,60 +150,60 @@ public class BiomeInit {
 		initBiome(FORESTCAVERNS, "forestcaverns", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.LUSH, Type.DENSE, Type.FOREST);
 
 		//Mars
-		initBiome(MARSFLATS, "marsflats", 30, false, new ArrayList<>(), Arrays.asList(MARSHILLS), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
+		initBiome(MARSFLATS, "marsflats", 30, false, new ArrayList<>(), Collections.singletonList(MARSHILLS), BiomeType.DESERT, Type.DEAD, Type.DRY, Type.PLAINS, Type.HOT, Type.SANDY);
 		initBiome(MARSCANYON, "marscanyon", 3, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DRY, Type.RIVER, Type.SANDY);
-		initBiome(MARSHILLS, "marshills", 22, false, new ArrayList<>(), Arrays.asList(MARSMOUNTAIN), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
+		initBiome(MARSHILLS, "marshills", 22, false, new ArrayList<>(), Collections.singletonList(MARSMOUNTAIN), BiomeType.WARM, Type.DEAD, Type.DRY, Type.HILLS, Type.SANDY);
 		initBiome(MARSMOUNTAIN, "marsmountain", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.DEAD, Type.DRY, Type.MOUNTAIN, Type.SANDY);
-		initBiome(MARSVALLEY, "marsvalley", 8, true, new ArrayList<>(), Arrays.asList(MARSBARREN), BiomeType.COOL, Type.DEAD, Type.DRY, Type.RARE, Type.OCEAN, Type.SANDY);
+		initBiome(MARSVALLEY, "marsvalley", 8, true, new ArrayList<>(), Collections.singletonList(MARSBARREN), BiomeType.COOL, Type.DEAD, Type.DRY, Type.RARE, Type.OCEAN, Type.SANDY);
 		initBiome(MARSBARREN, "marsbarren", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.DRY, Type.PLAINS, Type.SANDY);
 
 		//Luna
-		initBiome(LUNAFLATS, "lunaflats", 30, false, new ArrayList<>(), Arrays.asList(LUNAVALLEY), BiomeType.COOL, Type.DEAD, Type.COLD);
+		initBiome(LUNAFLATS, "lunaflats", 30, false, new ArrayList<>(), Collections.singletonList(LUNAVALLEY), BiomeType.COOL, Type.DEAD, Type.COLD);
 		initBiome(LUNAVALLEY, "lunavalley", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.DEAD, Type.COLD);
-		initBiome(LUNAHILLS, "lunahills", 25, false, new ArrayList<>(), Arrays.asList(LUNAVALLEY), BiomeType.COOL, Type.DEAD, Type.COLD);
+		initBiome(LUNAHILLS, "lunahills", 25, false, new ArrayList<>(), Collections.singletonList(LUNAVALLEY), BiomeType.COOL, Type.DEAD, Type.COLD);
 
 		//Venus
-		initBiome(VENUSFLATS, "venusflats", 30, false, new ArrayList<>(), Arrays.asList(VENUSCRATER), BiomeType.WARM, Type.PLAINS, Type.DEAD, Type.HOT);
+		initBiome(VENUSFLATS, "venusflats", 30, false, new ArrayList<>(), Collections.singletonList(VENUSCRATER), BiomeType.WARM, Type.PLAINS, Type.DEAD, Type.HOT);
 		initBiome(VENUSCRATER, "venuscrater", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.SANDY, Type.DEAD, Type.HOT);
-		initBiome(VENUSHILLS, "venushills", 30, false, new ArrayList<>(), Arrays.asList(VENUSMOUNTAIN), BiomeType.WARM, Type.HILLS, Type.DEAD, Type.HOT);
+		initBiome(VENUSHILLS, "venushills", 30, false, new ArrayList<>(), Collections.singletonList(VENUSMOUNTAIN), BiomeType.WARM, Type.HILLS, Type.DEAD, Type.HOT);
 		initBiome(VENUSMOUNTAIN, "venusmountain", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.MOUNTAIN, Type.DEAD, Type.HOT);
 		initBiome(VENUSRIDGE, "venusridge", 10, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.RIVER, Type.DEAD, Type.HOT);
 
 		//Titan
-		initBiome(TITANFLATS, "titanflats", 30, false, new ArrayList<>(), Arrays.asList(TITANMOUNTAINS), BiomeType.WARM, Type.DEAD, Type.PLAINS);
-		initBiome(TITANMOUNTAINS, "titanmountains", 25, false, new ArrayList<>(), Arrays.asList(TITANFLATS), BiomeType.WARM, Type.DEAD, Type.MOUNTAIN);
+		initBiome(TITANFLATS, "titanflats", 30, false, new ArrayList<>(), Collections.singletonList(TITANMOUNTAINS), BiomeType.WARM, Type.DEAD, Type.PLAINS);
+		initBiome(TITANMOUNTAINS, "titanmountains", 25, false, new ArrayList<>(), Collections.singletonList(TITANFLATS), BiomeType.WARM, Type.DEAD, Type.MOUNTAIN);
 		initBiome(TITANHILLS, "titanhills", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DEAD, Type.HILLS);
-		initBiome(TITANOCEAN, "titanocean", 3, true, new ArrayList<>(), Arrays.asList(TITANHILLS), BiomeType.COOL, Type.OCEAN);
+		initBiome(TITANOCEAN, "titanocean", 3, true, new ArrayList<>(), Collections.singletonList(TITANHILLS), BiomeType.COOL, Type.OCEAN);
 
 		//Enceladus
-		initBiome(ENCELADUSWASTES, "enceladuswastes", 30, false, new ArrayList<>(), Arrays.asList(ENCELADUSCRATER), BiomeType.ICY, Type.PLAINS, Type.COLD);
+		initBiome(ENCELADUSWASTES, "enceladuswastes", 30, false, new ArrayList<>(), Collections.singletonList(ENCELADUSCRATER), BiomeType.ICY, Type.PLAINS, Type.COLD);
 		//initBiome(ENCELADUSPLATEAU, "enceladusplateau", 1, false, new ArrayList<>(), new ArrayList<>(), BiomeType.ICY, Type.HILLS, Type.COLD);
 		initBiome(ENCELADUSCRATER, "enceladuscrater", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.ICY, Type.COLD);
 		initBiome(ENCELADUSCANYON, "enceladuscanyon", 28, false, new ArrayList<>(), new ArrayList<>(), BiomeType.ICY, Type.COLD, Type.RIVER);
 
 		//IO
-		initBiome(IOWASTES, "iowastes", 25, false, new ArrayList<>(), Arrays.asList(IOHILLS), BiomeType.COOL, Type.COLD, Type.WASTELAND);
+		initBiome(IOWASTES, "iowastes", 25, false, new ArrayList<>(), Collections.singletonList(IOHILLS), BiomeType.COOL, Type.COLD, Type.WASTELAND);
 		initBiome(IOSPIRES, "iospires", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.COLD, Type.HILLS);
 		initBiome(IOHILLS, "iohills", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.COLD, Type.MOUNTAIN);
-		initBiome(IOSULFUR, "iosulfur", 25, false, new ArrayList<>(), Arrays.asList(IOSPIRES), BiomeType.COOL, Type.HOT, Type.SANDY);
+		initBiome(IOSULFUR, "iosulfur", 25, false, new ArrayList<>(), Collections.singletonList(IOSPIRES), BiomeType.COOL, Type.HOT, Type.SANDY);
 
 		//Arrakis
-		initBiome(ARRAKISDESERT, "arrakisdesert", 20, false, new ArrayList<>(), Arrays.asList(ARRAKISHILLS), BiomeType.DESERT, Type.HOT, Type.SANDY, Type.WASTELAND);
-		initBiome(ARRAKISSANDS, "arrakissands", 20, false, new ArrayList<>(), Arrays.asList(ARRAKISDESERT), BiomeType.DESERT, Type.HOT, Type.SANDY);
+		initBiome(ARRAKISDESERT, "arrakisdesert", 20, false, new ArrayList<>(), Collections.singletonList(ARRAKISHILLS), BiomeType.DESERT, Type.HOT, Type.SANDY, Type.WASTELAND);
+		initBiome(ARRAKISSANDS, "arrakissands", 20, false, new ArrayList<>(), Collections.singletonList(ARRAKISDESERT), BiomeType.DESERT, Type.HOT, Type.SANDY);
 		initBiome(ARRAKISHILLS, "arrakishills", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.HOT, Type.MOUNTAIN);
 		initBiome(ARRAKISDUNES, "arrakisdunes", 17, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.HOT, Type.RIVER);
 
 		//Chibirus
-		initBiome(CHIBIRUSDESERT, "chibirusdesert", 30, false, new ArrayList<>(), Arrays.asList(CHIBIRUSWASTES), BiomeType.COOL, Type.COLD, Type.PLAINS);
+		initBiome(CHIBIRUSDESERT, "chibirusdesert", 30, false, new ArrayList<>(), Collections.singletonList(CHIBIRUSWASTES), BiomeType.COOL, Type.COLD, Type.PLAINS);
 		initBiome(CHIBIRUSRIDGE, "chibirusridge", 18, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.COLD, Type.RIVER);
-		initBiome(CHIBIRUSMOUNTAIN, "chibirusmountain", 10, false, new ArrayList<>(), Arrays.asList(CHIBIRUSDESERT), BiomeType.COOL, Type.COLD, Type.MOUNTAIN);
-		initBiome(CHIBIRUSWASTES, "chibiruswastes", 25, false, new ArrayList<>(), Arrays.asList(CHIBIRUSCAVES), BiomeType.COOL, Type.COLD, Type.WASTELAND);
+		initBiome(CHIBIRUSMOUNTAIN, "chibirusmountain", 10, false, new ArrayList<>(), Collections.singletonList(CHIBIRUSDESERT), BiomeType.COOL, Type.COLD, Type.MOUNTAIN);
+		initBiome(CHIBIRUSWASTES, "chibiruswastes", 25, false, new ArrayList<>(), Collections.singletonList(CHIBIRUSCAVES), BiomeType.COOL, Type.COLD, Type.WASTELAND);
 		initBiome(CHIBIRUSCAVES, "chibiruscaves", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.COOL, Type.COLD, Type.HILLS);
 
 		//Kraztus
 
 		//Pythrea
-		initBiome(PYTHREASHALLOWS, "pythreashallows", 20, false, new ArrayList<>(), Arrays.asList(PYTHREAISLANDS), BiomeType.WARM, Type.WATER, Type.OCEAN);
+		initBiome(PYTHREASHALLOWS, "pythreashallows", 20, false, new ArrayList<>(), Collections.singletonList(PYTHREAISLANDS), BiomeType.WARM, Type.WATER, Type.OCEAN);
 		initBiome(PYTHREAOCEAN, "pythreaocean", 17, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.WATER);
 		//initBiome(PYTHREATRENCH, "pythreatrench", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.SPOOKY, Type.WATER, Type.OCEAN);
 		initBiome(PYTHREAISLANDS, "pythreaislands", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.SANDY);
@@ -222,11 +217,11 @@ public class BiomeInit {
 		//initBiome(OXELLAFLATS, "oxellaflats", 30, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.WATER, Type.OCEAN);
 
 		//Plocury
-		initBiome(PLOCURYDESERT, "plocurydesert", 20, false, new ArrayList<>(), Arrays.asList(PLOCURYOASIS), BiomeType.DESERT, Type.HOT, Type.SANDY, Type.OCEAN);
+		initBiome(PLOCURYDESERT, "plocurydesert", 20, false, new ArrayList<>(), Collections.singletonList(PLOCURYOASIS), BiomeType.DESERT, Type.HOT, Type.SANDY, Type.OCEAN);
 		initBiome(PLOCURYBRUSH, "plocurybrush", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DRY, Type.HOT, Type.SAVANNA);
 		//initBiome(PLOCURYOUTBACK, "plocuryoutback", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.DRY, Type.HOT, Type.SAVANNA);
 		//initBiome(PLOCURYSTEPPE, "plocurysteppe", 20, false, new ArrayList<>(), new ArrayList<>(), BiomeType.DESERT, Type.HOT, Type.DRY, Type.SPARSE);
-		initBiome(PLOCURYXERIC, "plocuryxeric", 19, false, new ArrayList<>(), Arrays.asList(PLOCURYOASIS), BiomeType.DESERT, Type.HOT, Type.SANDY, Type.SPARSE);
+		initBiome(PLOCURYXERIC, "plocuryxeric", 19, false, new ArrayList<>(), Collections.singletonList(PLOCURYOASIS), BiomeType.DESERT, Type.HOT, Type.SANDY, Type.SPARSE);
 		initBiome(PLOCURYOASIS, "plocuryoasis", 0, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.WET, Type.BEACH, Type.LUSH);
 		initBiome(PLOCURYRIVER, "plocuryriver", 2, false, new ArrayList<>(), new ArrayList<>(), BiomeType.WARM, Type.RIVER);
 

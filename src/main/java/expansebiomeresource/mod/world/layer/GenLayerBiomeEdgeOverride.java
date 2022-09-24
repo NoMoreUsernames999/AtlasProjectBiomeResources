@@ -1,5 +1,8 @@
 package expansebiomeresource.mod.world.layer;
 
+import biomesoplenty.api.biome.BOPBiomes;
+import com.google.common.base.Optional;
+import net.minecraft.init.Biomes;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
@@ -18,41 +21,22 @@ public class GenLayerBiomeEdgeOverride extends GenLayer {
     }
 
     public @Nonnull int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight) {
-        int[] aint = this.parent.getInts(areaX - 1, areaY - 1, areaWidth + 2, areaHeight + 2);
-        int[] aint1 = IntCache.getIntCache(areaWidth * areaHeight);
-        for(int i = 0; i < areaHeight; ++i) {
-            for(int j = 0; j < areaWidth; ++j) {
-                this.initChunkSeed(j + areaX, i + areaY);
-                int biome = aint[j + 1 + (i + 1) * (areaWidth + 2)];
-                Biome curBiome = Biome.getBiome(biome);
-                if(curBiome!=null && this.biomes.get(curBiome)!=null) {
-                    Biome transform = this.biomes.get(curBiome);
-                    if (!this.replaceBiomeEdgeIfNecessary(aint, aint1, j, i, areaWidth, biome, Biome.getIdForBiome(curBiome), Biome.getIdForBiome(transform)) && !this.replaceBiomeEdge(aint, aint1, j, i, areaWidth, biome, Biome.getIdForBiome(curBiome), Biome.getIdForBiome(transform))) {
-                        aint1[j + i * areaWidth] = biome;
-                    }
+        int[] parentVals = this.parent.getInts(areaX - 1, areaY - 1, areaWidth + 2, areaHeight + 2);
+        int[] out = IntCache.getIntCache(areaWidth * areaHeight);
+        for(int y = 0; y < areaHeight; ++y) {
+            for(int x = 0; x < areaWidth; ++x) {
+                this.initChunkSeed(x + areaX, y + areaY);
+                int biomeId = parentVals[x + 1 + (y + 1) * (areaWidth + 2)];
+                boolean replace = true;
+                for(Biome from : biomes.keySet()) {
+                    replace = !this.replaceBiomeEdge(parentVals, out, x, y, areaWidth, biomeId, Biome.getIdForBiome(from), Biome.getIdForBiome(biomes.get(from)));
+                    if(!replace) break;
                 }
+                if (replace) out[x + y * areaWidth] = biomeId;
             }
         }
 
-        return aint1;
-    }
-
-    private boolean replaceBiomeEdgeIfNecessary(int[] aint, int[] aint1, int areaX, int areaY, int areaWidth, int areaHeight, int biome, int biome1) {
-        if (!biomesEqualOrMesaPlateau(areaHeight, biome)) {
-            return false;
-        } else {
-            int k = aint[areaX + 1 + (areaY + 1 - 1) * (areaWidth + 2)];
-            int lvt_10_1_ = aint[areaX + 1 + 1 + (areaY + 1) * (areaWidth + 2)];
-            int lvt_11_1_ = aint[areaX + 1 - 1 + (areaY + 1) * (areaWidth + 2)];
-            int lvt_12_1_ = aint[areaX + 1 + (areaY + 1 + 1) * (areaWidth + 2)];
-            if (this.canBiomesBeNeighbors(k, biome) && this.canBiomesBeNeighbors(lvt_10_1_, biome) && this.canBiomesBeNeighbors(lvt_11_1_, biome) && this.canBiomesBeNeighbors(lvt_12_1_, biome)) {
-                aint1[areaX + areaY * areaWidth] = areaHeight;
-            } else {
-                aint1[areaX + areaY * areaWidth] = biome1;
-            }
-
-            return true;
-        }
+        return out;
     }
 
     private boolean replaceBiomeEdge(int[] aint, int[] aint1, int areaX, int areaY, int areaWidth, int areaHeight, int biome, int biome1) {

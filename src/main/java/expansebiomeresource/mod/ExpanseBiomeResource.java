@@ -1,8 +1,14 @@
 package expansebiomeresource.mod;
 
+import expansebiomeresource.mod.capabilities.customworldtypebiomes.CWTBCapability;
+import expansebiomeresource.mod.capabilities.customworldtypebiomes.CWTBInterface;
+import expansebiomeresource.mod.capabilities.customworldtypebiomes.CWTBStorage;
 import expansebiomeresource.mod.proxy.CommonProxy;
 import expansebiomeresource.mod.util.Reference;
 import expansebiomeresource.mod.util.handlers.RegistryHandler;
+import expansebiomeresource.mod.world.Events;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -29,6 +35,8 @@ public class ExpanseBiomeResource {
 	@EventHandler	
 	public static void preInit(FMLPreInitializationEvent event) {
 		RegistryHandler.preInitRegistries();
+		CapabilityManager.INSTANCE.register(CWTBInterface.class, new CWTBStorage(), CWTBCapability::new);
+		MinecraftForge.EVENT_BUS.register(Events.class);
 	}
 	@EventHandler	
 	public static void init(FMLInitializationEvent event) {}
